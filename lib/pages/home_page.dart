@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,48 +6,170 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey,
-        appBar: AppBar(
-          backgroundColor: Colors.blue,
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: 150,
-              color: Colors.pink,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 100,
-                    height: 125,
-                    color: Colors.blue,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        width: 250,
-                        height: 50,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        width: 100,
-                        height: 25,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        width: 100,
-                        height: 25,
-                        color: Colors.blue,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+      backgroundColor: Colors.grey,
+      body: Column(
+        children: [
+          Container(
+            height: 80,
+            margin: const EdgeInsets.only(
+              bottom: 24,
             ),
-          ],
-        ));
+            color: Colors.lightBlue[300],
+            child: Row(
+              children: [
+                Container(
+                  width: 90,
+                  height: 30,
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 45,
+                  ),
+                  color: Colors.greenAccent,
+                ),
+                Container(
+                  width: 30,
+                  height: 30,
+                  margin: const EdgeInsets.only(left: 150),
+                  color: Colors.orange,
+                ),
+                Container(
+                  width: 30,
+                  height: 30,
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                  ),
+                  color: Colors.orange,
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: 375,
+            height: 140,
+            margin: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 16,
+            ),
+            padding: const EdgeInsets.all(14),
+            color: Colors.pink[400],
+            child: Row(
+              children: [
+                Container(
+                  width: 100,
+                  margin: const EdgeInsets.only(
+                    right: 20,
+                  ),
+                  color: Colors.blue[300],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 190,
+                      height: 30,
+                      color: Colors.blue[300],
+                    ),
+                    Container(
+                      width: 100,
+                      height: 20,
+                      color: Colors.blue[300],
+                    ),
+                    Container(
+                      width: 100,
+                      height: 20,
+                      color: Colors.blue[300],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: 375,
+            height: 140,
+            margin: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 16,
+            ),
+            padding: const EdgeInsets.all(14),
+            color: Colors.pink[400],
+            child: Row(
+              children: [
+                Container(
+                  width: 100,
+                  margin: const EdgeInsets.only(
+                    right: 20,
+                  ),
+                  color: Colors.blue[300],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 190,
+                      height: 30,
+                      color: Colors.blue[300],
+                    ),
+                    Container(
+                      width: 100,
+                      height: 20,
+                      color: Colors.blue[300],
+                    ),
+                    Container(
+                      width: 100,
+                      height: 20,
+                      color: Colors.blue[300],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: 375,
+            height: 140,
+            margin: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 16,
+            ),
+            padding: const EdgeInsets.all(14),
+            color: Colors.pink[400],
+            child: Row(
+              children: [
+                Container(
+                  width: 100,
+                  margin: const EdgeInsets.only(
+                    right: 20,
+                  ),
+                  color: Colors.blue[300],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 190,
+                      height: 30,
+                      color: Colors.blue[300],
+                    ),
+                    Container(
+                      width: 100,
+                      height: 20,
+                      color: Colors.blue[300],
+                    ),
+                    Container(
+                      width: 100,
+                      height: 20,
+                      color: Colors.blue[300],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
