@@ -153,11 +153,37 @@ class HomePage extends StatelessWidget {
               ),
               const TopNewsCard(
                 title: 'McConnell, when asked, fails',
-                description: 'Mitch McConnell was asked repeatedly about his views of "replacement theory...',
+                description:
+                    'Mitch McConnell was asked repeatedly about his views of "replacement theory...',
               ),
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: NavigationBar(
+        backgroundColor: Colors.white,
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.home_filled),
+            label: '',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.auto_graph_rounded),
+            label: '',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.splitscreen),
+            label: '',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.document_scanner),
+            label: '',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.video_camera_back),
+            label: '',
+          ),
+        ],
       ),
     );
   }
