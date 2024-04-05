@@ -9,13 +9,15 @@ class MyAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 140,
+      height: 60,
       child: Stack(
         children: [
           Positioned(
-            left: 85,
+            left: 83,
             child: Container(
-              width: 50,
-              height: 50,
+              width: 55,
+              height: 65,
+              padding: const EdgeInsets.only(left: 4, bottom: 3),
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: Color(0xffffbba8),
