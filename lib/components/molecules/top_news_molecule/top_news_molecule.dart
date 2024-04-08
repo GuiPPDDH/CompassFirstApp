@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class TopNewsCard extends StatelessWidget {
+class TopNewsMolecule extends StatelessWidget {
   final String title;
   final String description;
 
-  const TopNewsCard({
+  const TopNewsMolecule({
     super.key,
     required this.title,
     required this.description,

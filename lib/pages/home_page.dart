@@ -1,7 +1,9 @@
+import 'package:compass_first_app/components/molecules/my_appbar_molecule/my_appbar_molecule.dart';
+import 'package:compass_first_app/components/molecules/top_news_molecule/top_news_title.dart';
+import 'package:compass_first_app/components/molecules/trending_news_molecule/trending_news_molecule.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/my_appbar_widget.dart';
-import 'widgets/top_news_card_widget.dart';
+import '../components/molecules/top_news_molecule/top_news_molecule.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,117 +14,38 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(30),
-          child: Column(
+          child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const MyAppBar(),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.search),
-                  ),
-                ],
-              ),
-              const SizedBox(
+              MyAppBarMolecule(),
+              SizedBox(
                 height: 40,
               ),
-              const Text(
-                'Trending',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xfffa8072),
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              const Text(
-                textAlign: TextAlign.start,
-                'A crypto first? What happens when a blockchain like Terra dies',
-                style: TextStyle(
-                  fontSize: 23,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Container(
-                height: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: Colors.grey,
-                ),
-              ),
-              const SizedBox(
+              TrendingNewsMolecule(),
+              SizedBox(
                 height: 30,
               ),
-              const Text(
-                'Top News',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(
-                height: 4,
-              ),
-              Row(
-                children: [
-                  Container(
-                    width: 50,
-                    height: 3,
-                    color: const Color(0xfffa8072),
-                  ),
-                  const SizedBox(
-                    width: 3,
-                  ),
-                  Container(
-                    width: 2,
-                    height: 3,
-                    color: const Color(0xfffa8072),
-                  ),
-                  const SizedBox(
-                    width: 3,
-                  ),
-                  Container(
-                    width: 2,
-                    height: 3,
-                    color: const Color(0xfffa8072),
-                  ),
-                  const SizedBox(
-                    width: 3,
-                  ),
-                  Container(
-                    width: 2,
-                    height: 3,
-                    color: const Color(0xfffa8072),
-                  ),
-                ],
-              ),
-              const SizedBox(
+              TopNewsTitle(),
+              SizedBox(
                 height: 20,
               ),
-              const TopNewsCard(
+              TopNewsMolecule(
                 title: 'Top 10 applications of Web 3.0',
                 description:
                     'The transparency that is ensured in Web 3.0 can help in reaping long-term profits by...',
               ),
-              const SizedBox(
+              SizedBox(
                 height: 20,
               ),
-              const TopNewsCard(
+              TopNewsMolecule(
                 title: 'FDA authorizes Pfizer\'s',
                 description:
                     'The U.S. Food and Drug Administration has authorized a booster dose of the Pfizer...',
               ),
-              const SizedBox(
+              SizedBox(
                 height: 20,
               ),
-              const TopNewsCard(
+              TopNewsMolecule(
                 title: 'McConnell, when asked, fails',
                 description:
                     'Mitch McConnell was asked repeatedly about his views of "replacement theory...',
