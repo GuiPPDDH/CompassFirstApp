@@ -1,7 +1,8 @@
-import 'package:compass_first_app/components/atoms/trending_news_atoms/trending_news_description.dart';
-import 'package:compass_first_app/components/atoms/trending_news_atoms/trending_news_image.dart';
-import 'package:compass_first_app/components/atoms/trending_news_atoms/trending_news_label.dart';
+import 'package:compass_first_app/components/atoms/trending_news_atoms/trending_news_description_atom.dart';
+import 'package:compass_first_app/components/atoms/trending_news_atoms/trending_news_label_atom.dart';
 import 'package:flutter/material.dart';
+
+import '../../atoms/news_image_atom.dart';
 
 class TrendingNewsMolecule extends StatelessWidget {
   const TrendingNewsMolecule({super.key});
@@ -11,15 +12,24 @@ class TrendingNewsMolecule extends StatelessWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TrendingNewsLabel(),
+        TrendingNewsLabelAtom(),
         SizedBox(
           height: 8,
         ),
-        TrendingNewsDescription(),
+        TrendingNewsDescriptionAtom(
+          description:
+              'A crypto first? What happens when a blockchain like Terra dies',
+        ),
         SizedBox(
           height: 8,
         ),
-        TrendingNewsImage(),
+        NewsImageAtom(
+          width: double.infinity,
+          height: 200,
+          color: Colors.grey,
+          imagePath:
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwlzVkvBV1EA_w87NFvYAhT-EC2HMRpfTuRFtHE7nXE5GPvnsQ',
+        ),
       ],
     );
   }

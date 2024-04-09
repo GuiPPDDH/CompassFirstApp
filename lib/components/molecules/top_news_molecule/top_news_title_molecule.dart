@@ -1,5 +1,5 @@
-import 'package:compass_first_app/components/atoms/top_news_atoms/top_news_divisor.dart';
-import 'package:compass_first_app/components/atoms/top_news_atoms/top_news_label.dart';
+import 'package:compass_first_app/components/atoms/top_news_atoms/top_news_divisor_atom.dart';
+import 'package:compass_first_app/components/atoms/top_news_atoms/top_news_label_atom.dart';
 import 'package:flutter/material.dart';
 
 class TopNewsTitleMolecule extends StatelessWidget {
@@ -10,11 +10,11 @@ class TopNewsTitleMolecule extends StatelessWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TopNewsLabel(),
+        TopNewsLabelAtom(),
         SizedBox(
           height: 4,
         ),
-        TopNewsDivisor(),
+        TopNewsDivisorAtom(),
       ],
     );
   }

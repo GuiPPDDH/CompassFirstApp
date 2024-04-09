@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyAppbarLabel extends StatelessWidget {
-  const MyAppbarLabel({super.key});
+class MyAppbarLabelAtom extends StatelessWidget {
+  const MyAppbarLabelAtom({super.key});
 
   @override
   Widget build(BuildContext context) {

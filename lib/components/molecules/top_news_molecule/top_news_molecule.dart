@@ -1,7 +1,7 @@
-import 'package:compass_first_app/components/atoms/top_news_atoms/top_news_description.dart';
-import 'package:compass_first_app/components/atoms/top_news_atoms/top_news_image.dart';
+import 'package:compass_first_app/components/atoms/top_news_atoms/top_news_description_atom.dart';
 import 'package:flutter/material.dart';
-import '../../atoms/top_news_atoms/top_news_title.dart';
+import '../../atoms/news_image_atom.dart';
+import '../../atoms/top_news_atoms/top_news_title_atom.dart';
 
 class TopNewsMolecule extends StatelessWidget {
   final String title;
@@ -17,7 +17,12 @@ class TopNewsMolecule extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const TopNewsImage(),
+        const NewsImageAtom(
+          width: 100,
+          height: 80,
+          color: Colors.grey,
+          imagePath: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwlzVkvBV1EA_w87NFvYAhT-EC2HMRpfTuRFtHE7nXE5GPvnsQ',
+        ),
         const SizedBox(
           width: 10,
         ),
@@ -26,13 +31,13 @@ class TopNewsMolecule extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TopNewsTitle(
+              TopNewsTitleAtom(
                 title: title,
               ),
               const SizedBox(
                 height: 4,
               ),
-              TopNewsDescription(
+              TopNewsDescriptionAtom(
                 description: description,
               ),
             ],

@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class TopNewsTitle extends StatelessWidget {
-  final String title;
+class TopNewsDescriptionAtom extends StatelessWidget {
+  final String description;
 
-  const TopNewsTitle({
+  const TopNewsDescriptionAtom({
     super.key,
-    required this.title,
+    required this.description,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      title,
+      description,
       style: const TextStyle(
         fontSize: 13,
-        fontWeight: FontWeight.bold,
+        color: Colors.grey,
       ),
     );
   }

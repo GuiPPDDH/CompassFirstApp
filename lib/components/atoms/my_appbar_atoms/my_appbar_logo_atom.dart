@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyAppbarLogo extends StatelessWidget {
-  const MyAppbarLogo({super.key});
+class MyAppbarLogoAtom extends StatelessWidget {
+  const MyAppbarLogoAtom({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class MyAppbarLogo extends StatelessWidget {
       child: Container(
         width: 55,
         height: 65,
-        padding: const EdgeInsets.only(left: 4, bottom: 3),
+        padding: const EdgeInsets.only(left: 4, bottom: 3,),
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
           color: Color(0xffffbba8),
