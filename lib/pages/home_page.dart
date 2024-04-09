@@ -1,3 +1,4 @@
+import 'package:compass_first_app/components/molecules/bottom_navigation_bar_molecule/bottom_navigation_bar_molecule.dart';
 import 'package:compass_first_app/components/molecules/my_appbar_molecule/my_appbar_molecule.dart';
 import 'package:compass_first_app/components/molecules/top_news_molecule/top_news_title_molecule.dart';
 import 'package:compass_first_app/components/molecules/trending_news_molecule/trending_news_molecule.dart';
@@ -54,31 +55,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.white,
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.home_filled),
-            label: '',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.auto_graph_rounded),
-            label: '',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.splitscreen),
-            label: '',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.document_scanner),
-            label: '',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.video_camera_back),
-            label: '',
-          ),
-        ],
-      ),
+      bottomNavigationBar: const BottomNavigationBarMolecule(),
     );
   }
 }
