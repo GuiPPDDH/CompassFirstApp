@@ -1,4 +1,7 @@
+import 'package:compass_first_app/components/atoms/top_news_atoms/top_news_description.dart';
+import 'package:compass_first_app/components/atoms/top_news_atoms/top_news_image.dart';
 import 'package:flutter/material.dart';
+import '../../atoms/top_news_atoms/top_news_title.dart';
 
 class TopNewsMolecule extends StatelessWidget {
   final String title;
@@ -14,14 +17,7 @@ class TopNewsMolecule extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          width: 100,
-          height: 80,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Colors.grey,
-          ),
-        ),
+        const TopNewsImage(),
         const SizedBox(
           width: 10,
         ),
@@ -30,22 +26,14 @@ class TopNewsMolecule extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.bold,
-                ),
+              TopNewsTitle(
+                title: title,
               ),
               const SizedBox(
                 height: 4,
               ),
-              Text(
-                description,
-                style: const TextStyle(
-                  fontSize: 13,
-                  color: Colors.grey,
-                ),
+              TopNewsDescription(
+                description: description,
               ),
             ],
           ),

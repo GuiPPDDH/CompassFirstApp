@@ -2,8 +2,8 @@ import 'package:compass_first_app/components/atoms/top_news_atoms/top_news_divis
 import 'package:compass_first_app/components/atoms/top_news_atoms/top_news_label.dart';
 import 'package:flutter/material.dart';
 
-class TopNewsTitle extends StatelessWidget {
-  const TopNewsTitle({super.key});
+class TopNewsTitleMolecule extends StatelessWidget {
+  const TopNewsTitleMolecule({super.key});
 
   @override
   Widget build(BuildContext context) {

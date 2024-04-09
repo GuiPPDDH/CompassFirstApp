@@ -1,5 +1,5 @@
 import 'package:compass_first_app/components/molecules/my_appbar_molecule/my_appbar_molecule.dart';
-import 'package:compass_first_app/components/molecules/top_news_molecule/top_news_title.dart';
+import 'package:compass_first_app/components/molecules/top_news_molecule/top_news_title_molecule.dart';
 import 'package:compass_first_app/components/molecules/trending_news_molecule/trending_news_molecule.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              TopNewsTitle(),
+              TopNewsTitleMolecule(),
               SizedBox(
                 height: 20,
               ),
