@@ -1,5 +1,6 @@
 import 'package:compass_first_app/components/atoms/news_image_atom.dart';
 import 'package:flutter/material.dart';
+import '../components/molecules/appbar_news_details_molecule/appbar_news_details_molecule.dart';
 
 class NewsDetailsPage extends StatelessWidget {
   const NewsDetailsPage({super.key});
@@ -7,18 +8,7 @@ class NewsDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20),
-            child: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.more_horiz),
-              color: Colors.black,
-            ),
-          ),
-        ],
-      ),
+      appBar: AppbarNewsDetailsMolecule(),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(30),
