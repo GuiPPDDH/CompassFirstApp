@@ -9,26 +9,29 @@ class TrendingNewsMolecule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TrendingNewsLabelAtom(),
-        SizedBox(
+        const TrendingNewsLabelAtom(),
+        const SizedBox(
           height: 8,
         ),
-        TrendingNewsDescriptionAtom(
+        const TrendingNewsDescriptionAtom(
           description:
               'A crypto first? What happens when a blockchain like Terra dies',
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
-        NewsImageAtom(
-          width: double.infinity,
-          height: 200,
-          color: Colors.grey,
-          imagePath:
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwlzVkvBV1EA_w87NFvYAhT-EC2HMRpfTuRFtHE7nXE5GPvnsQ',
+        InkWell(
+          onTap: () => Navigator.of(context).pushNamed('/news_details'),
+          child: const NewsImageAtom(
+            width: double.infinity,
+            height: 200,
+            color: Colors.grey,
+            imagePath:
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwlzVkvBV1EA_w87NFvYAhT-EC2HMRpfTuRFtHE7nXE5GPvnsQ',
+          ),
         ),
       ],
     );
