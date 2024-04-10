@@ -1,10 +1,13 @@
+import 'package:compass_first_app/components/atoms/top_news_atoms/top_news_description_atom.dart';
 import 'package:flutter/material.dart';
+import '../../atoms/news_image_atom.dart';
+import '../../atoms/top_news_atoms/top_news_title_atom.dart';
 
-class TopNewsCard extends StatelessWidget {
+class TopNewsMolecule extends StatelessWidget {
   final String title;
   final String description;
 
-  const TopNewsCard({
+  const TopNewsMolecule({
     super.key,
     required this.title,
     required this.description,
@@ -14,13 +17,11 @@ class TopNewsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
+        const NewsImageAtom(
           width: 100,
           height: 80,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Colors.grey,
-          ),
+          color: Colors.grey,
+          imagePath: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwlzVkvBV1EA_w87NFvYAhT-EC2HMRpfTuRFtHE7nXE5GPvnsQ',
         ),
         const SizedBox(
           width: 10,
@@ -30,22 +31,14 @@ class TopNewsCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.bold,
-                ),
+              TopNewsTitleAtom(
+                title: title,
               ),
               const SizedBox(
                 height: 4,
               ),
-              Text(
-                description,
-                style: const TextStyle(
-                  fontSize: 13,
-                  color: Colors.grey,
-                ),
+              TopNewsDescriptionAtom(
+                description: description,
               ),
             ],
           ),
