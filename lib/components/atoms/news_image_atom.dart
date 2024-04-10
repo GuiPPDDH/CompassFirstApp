@@ -29,7 +29,6 @@ class NewsImageAtom extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         color: color,
       ),
-      child: null,
     );
   }
 }
