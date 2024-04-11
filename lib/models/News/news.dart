@@ -13,7 +13,7 @@ class News {
     return News(
       title: json['title'],
       description: json['description'],
-      imagePath: json[''],
+      imagePath: json['image'],
     );
   }
 }
