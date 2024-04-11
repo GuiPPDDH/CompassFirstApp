@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AppbarNewsDetailsMolecule extends AppBar {
-  AppbarNewsDetailsMolecule({super.key})
+class NewsDetailsAppbarMolecule extends AppBar {
+  NewsDetailsAppbarMolecule({super.key})
       : super(
           actions: [
             Padding(

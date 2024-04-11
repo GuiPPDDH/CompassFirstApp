@@ -1,6 +1,9 @@
+import 'package:compass_first_app/components/atoms/news_details_description_atom/news_details_description_atom.dart';
+import 'package:compass_first_app/components/atoms/news_details_title_atom/news_details_title_atom.dart';
 import 'package:compass_first_app/components/atoms/news_image_atom.dart';
+import 'package:compass_first_app/components/molecules/news_details_profile_molecule/news_details_profile_molecule.dart';
 import 'package:flutter/material.dart';
-import '../components/molecules/appbar_news_details_molecule/appbar_news_details_molecule.dart';
+import '../components/molecules/news_details_appbar_molecule/news_details_appbar_molecule.dart';
 
 class NewsDetailsPage extends StatelessWidget {
   const NewsDetailsPage({super.key});
@@ -8,96 +11,36 @@ class NewsDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarNewsDetailsMolecule(),
+      appBar: NewsDetailsAppbarMolecule(),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(30),
-          child: Column(
+          child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const NewsImageAtom(
+              NewsImageAtom(
                 width: double.infinity,
                 height: 200,
                 color: Colors.grey,
                 imagePath:
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwlzVkvBV1EA_w87NFvYAhT-EC2HMRpfTuRFtHE7nXE5GPvnsQ',
               ),
-              const SizedBox(
+              SizedBox(
                 height: 40,
               ),
-              const Text(
-                textAlign: TextAlign.start,
-                'Menjelang Ramadhan 2023! Majelis mengadakan Tawaquffan',
-                style: TextStyle(
-                  fontSize: 23,
-                  fontWeight: FontWeight.bold,
-                ),
+              NewsDetailsTitleAtom(
+                title: 'Menjelang Ramadhan 2023! Majelis mengadakan Tawaquffan',
               ),
-              const SizedBox(
+              SizedBox(
                 height: 30,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.red[600],
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      const Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'CNN Indonesia',
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Text(
-                            'description',
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.favorite,
-                          color: Colors.red,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.bookmark,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(
+              NewsDetailsProfileMolecule(),
+              SizedBox(
                 height: 30,
               ),
-              const Text(
-                'Algum texto muuuuuuuuuuuuuuuuuuuuiiiiiiiiiiiiiitoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo graaaaaaaaaaaaaaaaaaaaaaaannnndddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+              NewsDetailsDescriptionAtom(
+                description:
+                    'Algum texto muuuuuuuuuuuuuuuuuuuuiiiiiiiiiiiiiitoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo graaaaaaaaaaaaaaaaaaaaaaaannnndddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii',
               ),
             ],
           ),
