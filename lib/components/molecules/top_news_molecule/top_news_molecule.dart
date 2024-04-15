@@ -6,11 +6,13 @@ import '../../atoms/top_news_atoms/top_news_title_atom.dart';
 class TopNewsMolecule extends StatelessWidget {
   final String title;
   final String description;
+  final String imagePath;
 
   const TopNewsMolecule({
     super.key,
     required this.title,
     required this.description,
+    required this.imagePath,
   });
 
   @override
@@ -19,16 +21,16 @@ class TopNewsMolecule extends StatelessWidget {
       onTap: () => Navigator.of(context).pushNamed('/news_details'),
       child: Row(
         children: [
-          const NewsImageAtom(
+          NewsImageAtom(
             width: 100,
             height: 80,
             color: Colors.grey,
-            imagePath: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwlzVkvBV1EA_w87NFvYAhT-EC2HMRpfTuRFtHE7nXE5GPvnsQ',
+            imagePath: imagePath,
           ),
           const SizedBox(
             width: 10,
           ),
-          Flexible(
+          Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,

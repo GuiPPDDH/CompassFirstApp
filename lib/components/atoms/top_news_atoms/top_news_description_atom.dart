@@ -12,6 +12,7 @@ class TopNewsDescriptionAtom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       description,
+      maxLines: 2,
       style: const TextStyle(
         fontSize: 13,
         color: Colors.grey,

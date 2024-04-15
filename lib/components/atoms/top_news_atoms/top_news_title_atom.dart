@@ -12,6 +12,7 @@ class TopNewsTitleAtom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
+      maxLines: 1,
       style: const TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.bold,
