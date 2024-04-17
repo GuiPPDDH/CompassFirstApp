@@ -19,10 +19,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-       '/': (context) => const HomePage(),
-       '/news_details': (context) => const NewsDetailsPage(),
+        '/': (context) => const HomePage(),
+        '/news_details': (context) => const NewsDetailsPage(),
       },
     );
   }
 }
-

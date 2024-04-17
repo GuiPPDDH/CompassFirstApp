@@ -5,7 +5,6 @@ import 'package:compass_first_app/components/molecules/trending_news_molecule/tr
 import 'package:compass_first_app/models/api_response/api_response.dart';
 import 'package:compass_first_app/repositories/api_response_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import '../components/molecules/top_news_molecule/top_news_molecule.dart';
 
 class HomePage extends StatefulWidget {
@@ -44,6 +43,12 @@ class _HomePageState extends State<HomePage> {
                 return TrendingNewsMolecule(
                   title: article.title,
                   imagePath: article.imagePath,
+                  onTap: () {
+                    Navigator.of(context).pushNamed(
+                      '/news_details',
+                      arguments: article,
+                    );
+                  },
                 );
               }
               return const Center(
@@ -56,7 +61,7 @@ class _HomePageState extends State<HomePage> {
           ),
           const TopNewsTitleMolecule(),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           FutureBuilder(
             future: futureApiResponse,
@@ -76,6 +81,12 @@ class _HomePageState extends State<HomePage> {
                       title: articles.title,
                       description: articles.description,
                       imagePath: articles.imagePath,
+                      onTap: () {
+                        Navigator.of(context).pushNamed(
+                          '/news_details',
+                          arguments: articles,
+                        );
+                      },
                     );
                   },
                 );

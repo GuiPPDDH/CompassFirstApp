@@ -7,18 +7,20 @@ class TopNewsMolecule extends StatelessWidget {
   final String title;
   final String description;
   final String imagePath;
+  final Function()? onTap;
 
   const TopNewsMolecule({
     super.key,
     required this.title,
     required this.description,
     required this.imagePath,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.of(context).pushNamed('/news_details'),
+      onTap: onTap,
       child: Row(
         children: [
           NewsImageAtom(

@@ -7,11 +7,13 @@ import '../../atoms/news_image_atom.dart';
 class TrendingNewsMolecule extends StatelessWidget {
   final String title;
   final String imagePath;
+  final Function()? onTap;
 
   const TrendingNewsMolecule({
     super.key,
     required this.title,
     required this.imagePath,
+    this.onTap,
   });
 
   @override
@@ -30,7 +32,7 @@ class TrendingNewsMolecule extends StatelessWidget {
           height: 8,
         ),
         InkWell(
-          onTap: () => Navigator.of(context).pushNamed('/news_details'),
+          onTap: onTap,
           child: NewsImageAtom(
             width: double.infinity,
             height: 200,
