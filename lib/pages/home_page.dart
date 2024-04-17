@@ -4,11 +4,8 @@ import 'package:compass_first_app/components/molecules/top_news_molecule/top_new
 import 'package:compass_first_app/components/molecules/trending_news_molecule/trending_news_molecule.dart';
 import 'package:compass_first_app/models/api_response/api_response.dart';
 import 'package:compass_first_app/repositories/api_response_repository.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import '../components/molecules/top_news_molecule/top_news_molecule.dart';
-import '../models/article/article.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
