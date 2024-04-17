@@ -5,7 +5,14 @@ import 'package:flutter/material.dart';
 import '../../atoms/news_image_atom.dart';
 
 class TrendingNewsMolecule extends StatelessWidget {
-  const TrendingNewsMolecule({super.key});
+  final String title;
+  final String imagePath;
+
+  const TrendingNewsMolecule({
+    super.key,
+    required this.title,
+    required this.imagePath,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,21 +23,19 @@ class TrendingNewsMolecule extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        const TrendingNewsDescriptionAtom(
-          description:
-              'A crypto first? What happens when a blockchain like Terra dies',
+        TrendingNewsDescriptionAtom(
+          title: title,
         ),
         const SizedBox(
           height: 8,
         ),
         InkWell(
           onTap: () => Navigator.of(context).pushNamed('/news_details'),
-          child: const NewsImageAtom(
+          child: NewsImageAtom(
             width: double.infinity,
             height: 200,
             color: Colors.grey,
-            imagePath:
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwlzVkvBV1EA_w87NFvYAhT-EC2HMRpfTuRFtHE7nXE5GPvnsQ',
+            imagePath: imagePath,
           ),
         ),
       ],

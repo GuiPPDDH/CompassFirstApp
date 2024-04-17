@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 class TrendingNewsDescriptionAtom extends StatelessWidget {
-  final String description;
+  final String title;
 
   const TrendingNewsDescriptionAtom({
     super.key,
-    required this.description,
+    required this.title,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
       textAlign: TextAlign.start,
-      description,
+      title,
       style: const TextStyle(
         fontSize: 23,
         fontWeight: FontWeight.bold,
