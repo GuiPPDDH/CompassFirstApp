@@ -6,7 +6,7 @@ class ApiResponseRepository {
 
   Future<ApiResponse> fetchArticles() async {
     String url =
-        'https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=9f25639418a213070fa8c0e488f93f16';
+        'https://gnews.io/api/v4/search?q=example&apikey=9f25639418a213070fa8c0e488f93f16';
 
     final response = await http.get(
       Uri.parse(url),

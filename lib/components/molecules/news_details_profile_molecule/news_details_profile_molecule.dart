@@ -20,30 +20,35 @@ class NewsDetailsProfileMolecule extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          children: [
-            NewsDetailsProfileAvatarAtom(
-              color: Colors.red[600],
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                NewsDetailsProfileNameAtom(
-                  name: name,
+        Expanded(
+          child: Row(
+            children: [
+              NewsDetailsProfileAvatarAtom(
+                color: Colors.red[600],
+                name: name[0],
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    NewsDetailsProfileNameAtom(
+                      name: name,
+                    ),
+                    const SizedBox(
+                      height: 4,
+                    ),
+                    NewsDetailsProfileUrlAtom(
+                      url: url,
+                    ),
+                  ],
                 ),
-                const SizedBox(
-                  height: 4,
-                ),
-                NewsDetailsProfileUrlAtom(
-                  url: url,
-                ),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
         const Row(
           children: [
