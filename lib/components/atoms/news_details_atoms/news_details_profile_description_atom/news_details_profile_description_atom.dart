@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class TopNewsDescriptionAtom extends StatelessWidget {
+class NewsDetailsProfileDescriptionAtom extends StatelessWidget {
   final String description;
 
-  const TopNewsDescriptionAtom({
+  const NewsDetailsProfileDescriptionAtom({
     super.key,
     required this.description,
   });
@@ -12,7 +12,6 @@ class TopNewsDescriptionAtom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       description,
-      maxLines: 2,
       style: const TextStyle(
         fontSize: 13,
         color: Colors.grey,

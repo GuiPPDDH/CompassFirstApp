@@ -5,30 +5,40 @@ import 'package:flutter/material.dart';
 import '../../atoms/news_image_atom.dart';
 
 class TrendingNewsMolecule extends StatelessWidget {
-  const TrendingNewsMolecule({super.key});
+  final String title;
+  final String imagePath;
+  final Function()? onTap;
+
+  const TrendingNewsMolecule({
+    super.key,
+    required this.title,
+    required this.imagePath,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TrendingNewsLabelAtom(),
-        SizedBox(
+        const TrendingNewsLabelAtom(),
+        const SizedBox(
           height: 8,
         ),
         TrendingNewsDescriptionAtom(
-          description:
-              'A crypto first? What happens when a blockchain like Terra dies',
+          title: title,
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
-        NewsImageAtom(
-          width: double.infinity,
-          height: 200,
-          color: Colors.grey,
-          imagePath:
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwlzVkvBV1EA_w87NFvYAhT-EC2HMRpfTuRFtHE7nXE5GPvnsQ',
+        InkWell(
+          onTap: onTap,
+          child: NewsImageAtom(
+            width: double.infinity,
+            height: 200,
+            color: Colors.grey,
+            imagePath: imagePath,
+          ),
         ),
       ],
     );

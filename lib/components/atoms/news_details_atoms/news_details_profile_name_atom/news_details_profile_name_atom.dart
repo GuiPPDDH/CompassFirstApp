@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
-class TopNewsTitleAtom extends StatelessWidget {
-  final String title;
+class NewsDetailsProfileNameAtom extends StatelessWidget {
+  final String name;
 
-  const TopNewsTitleAtom({
+  const NewsDetailsProfileNameAtom({
     super.key,
-    required this.title,
+    required this.name,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      title,
-      maxLines: 1,
+      name,
       style: const TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.bold,

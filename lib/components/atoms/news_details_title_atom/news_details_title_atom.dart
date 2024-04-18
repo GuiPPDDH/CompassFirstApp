@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class TopNewsTitleAtom extends StatelessWidget {
+class NewsDetailsTitleAtom extends StatelessWidget {
   final String title;
 
-  const TopNewsTitleAtom({
+  const NewsDetailsTitleAtom({
     super.key,
     required this.title,
   });
@@ -12,9 +12,9 @@ class TopNewsTitleAtom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      maxLines: 1,
+      textAlign: TextAlign.start,
       style: const TextStyle(
-        fontSize: 13,
+        fontSize: 23,
         fontWeight: FontWeight.bold,
       ),
     );

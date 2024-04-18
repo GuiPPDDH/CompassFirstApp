@@ -6,11 +6,14 @@ class MyAppbarLogoAtom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: 83,
+      left: 95,
       child: Container(
         width: 55,
         height: 65,
-        padding: const EdgeInsets.only(left: 4, bottom: 3,),
+        padding: const EdgeInsets.only(
+          left: 4,
+          bottom: 3,
+        ),
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
           color: Color(0xffffbba8),
