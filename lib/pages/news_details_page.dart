@@ -35,7 +35,10 @@ class NewsDetailsPage extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              const NewsDetailsProfileMolecule(),
+              NewsDetailsProfileMolecule(
+                name: article.source.name,
+                url: article.source.url,
+              ),
               const SizedBox(
                 height: 30,
               ),

@@ -6,7 +6,14 @@ import 'package:compass_first_app/components/atoms/news_details_atoms/news_detai
 import 'package:flutter/material.dart';
 
 class NewsDetailsProfileMolecule extends StatelessWidget {
-  const NewsDetailsProfileMolecule({super.key});
+  final String name;
+  final String url;
+
+  const NewsDetailsProfileMolecule({
+    super.key,
+    required this.name,
+    required this.url,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,18 +28,18 @@ class NewsDetailsProfileMolecule extends StatelessWidget {
             const SizedBox(
               width: 20,
             ),
-            const Column(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 NewsDetailsProfileNameAtom(
-                  name: 'CNN Indonesia',
+                  name: name,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
-                NewsDetailsProfileDescriptionAtom(
-                  description: 'description',
+                NewsDetailsProfileUrlAtom(
+                  url: url,
                 ),
               ],
             ),
