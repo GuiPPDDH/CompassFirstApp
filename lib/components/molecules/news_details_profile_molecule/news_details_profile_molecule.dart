@@ -55,9 +55,6 @@ class NewsDetailsProfileMolecule extends StatelessWidget {
             NewsDetailsProfileFavoriteAtom(
               color: Colors.red,
             ),
-            NewsDetailsProfileSaveAtom(
-              color: Colors.black,
-            )
           ],
         ),
       ],

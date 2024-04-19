@@ -10,7 +10,7 @@ class MyAppBarMolecule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox(
-      width: 140,
+      width: 150,
       height: 60,
       child: Stack(
         children: [

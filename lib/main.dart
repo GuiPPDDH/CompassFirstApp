@@ -1,3 +1,4 @@
+import 'package:compass_first_app/pages/favorite_news_page.dart';
 import 'package:compass_first_app/pages/home_page.dart';
 import 'package:compass_first_app/pages/news_details_page.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/news_details': (context) => const NewsDetailsPage(),
+        '/favorite_news': (context) => const FavoriteNewsPage(),
       },
     );
   }

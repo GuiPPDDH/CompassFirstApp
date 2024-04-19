@@ -13,8 +13,8 @@ class NewsDetailsDescriptionAtom extends StatelessWidget {
     return Text(
       description,
       style: const TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w500,
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
       ),
     );
   }
