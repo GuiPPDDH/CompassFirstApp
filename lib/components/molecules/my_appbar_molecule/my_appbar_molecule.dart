@@ -15,7 +15,7 @@ class MyAppBarMolecule extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
+          const SizedBox(
             width: 150,
             height: 60,
             child: Stack(

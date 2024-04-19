@@ -1,12 +1,9 @@
-import 'package:compass_first_app/components/atoms/my_appbar_atoms/my_appbar_icon_button_atom.dart';
-import 'package:compass_first_app/components/molecules/bottom_navigation_bar_molecule/bottom_navigation_bar_molecule.dart';
 import 'package:compass_first_app/components/molecules/my_appbar_molecule/my_appbar_molecule.dart';
 import 'package:compass_first_app/components/molecules/top_news_molecule/top_news_title_molecule.dart';
 import 'package:compass_first_app/components/molecules/trending_news_molecule/trending_news_molecule.dart';
 import 'package:compass_first_app/models/api_response/api_response.dart';
 import 'package:compass_first_app/repositories/api_response_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import '../components/molecules/top_news_molecule/top_news_molecule.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,7 +31,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
           child: Column(
             children: [
-              MyAppBarMolecule(),
+              const MyAppBarMolecule(),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
