@@ -1,3 +1,4 @@
+import 'package:compass_first_app/components/atoms/my_appbar_atoms/my_appbar_icon_button_atom.dart';
 import 'package:compass_first_app/components/molecules/bottom_navigation_bar_molecule/bottom_navigation_bar_molecule.dart';
 import 'package:compass_first_app/components/molecules/my_appbar_molecule/my_appbar_molecule.dart';
 import 'package:compass_first_app/components/molecules/top_news_molecule/top_news_title_molecule.dart';
@@ -33,21 +34,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
           child: Column(
             children: [
-              Container(
-                alignment: Alignment.centerRight,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const MyAppBarMolecule(),
-                    IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed('/favorite_news');
-                      },
-                      icon: const Icon(Icons.favorite),
-                    )
-                  ],
-                ),
-              ),
+              MyAppBarMolecule(),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(

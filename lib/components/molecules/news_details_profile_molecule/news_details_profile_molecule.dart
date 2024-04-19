@@ -2,7 +2,6 @@ import 'package:compass_first_app/components/atoms/news_details_atoms/news_detai
 import 'package:compass_first_app/components/atoms/news_details_atoms/news_details_profile_description_atom/news_details_profile_description_atom.dart';
 import 'package:compass_first_app/components/atoms/news_details_atoms/news_details_profile_favorite_atom/news_details_profile_favorite_atom.dart';
 import 'package:compass_first_app/components/atoms/news_details_atoms/news_details_profile_name_atom/news_details_profile_name_atom.dart';
-import 'package:compass_first_app/components/atoms/news_details_atoms/news_details_profile_save_atom/news_details_profile_save_atom.dart';
 import 'package:flutter/material.dart';
 
 class NewsDetailsProfileMolecule extends StatelessWidget {
