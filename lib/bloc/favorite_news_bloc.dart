@@ -4,5 +4,12 @@ part 'favorite_news_event.dart';
 part 'favorite_news_state.dart';
 
 class FavoriteNewsBloc extends Bloc<FavoriteNewsEvent, FavoriteNewsState> {
-  FavoriteNewsBloc(super.initialState);
+  FavoriteNewsBloc() : super(FavoriteNewsStateInitial()) {
+    on<FavoriteToggle>(_toogleFavoriteStatus);
+  }
+
+  void _toogleFavoriteStatus(FavoriteToggle event, Emitter emitter) {
+    bool isFavorite = state.isFavorite;
+    emitter(FavoriteNewsStateData(!isFavorite));
+  }
 }

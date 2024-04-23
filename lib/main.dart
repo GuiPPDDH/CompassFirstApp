@@ -1,7 +1,9 @@
+import 'package:compass_first_app/bloc/favorite_news_bloc.dart';
 import 'package:compass_first_app/pages/favorite_news_page.dart';
 import 'package:compass_first_app/pages/home_page.dart';
 import 'package:compass_first_app/pages/news_details_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +23,10 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => const HomePage(),
-        '/news_details': (context) => const NewsDetailsPage(),
+        '/news_details': (context) => BlocProvider(
+              create: (_) => FavoriteNewsBloc(),
+              child: const NewsDetailsPage(),
+            ),
         '/favorite_news': (context) => const FavoriteNewsPage(),
       },
     );

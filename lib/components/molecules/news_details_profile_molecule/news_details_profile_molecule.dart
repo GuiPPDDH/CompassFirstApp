@@ -52,7 +52,7 @@ class NewsDetailsProfileMolecule extends StatelessWidget {
         const Row(
           children: [
             NewsDetailsProfileFavoriteAtom(
-              color: Colors.red,
+              color: Colors.grey,
             ),
           ],
         ),
