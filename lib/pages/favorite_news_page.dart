@@ -1,8 +1,8 @@
 import 'package:compass_first_app/components/molecules/top_news_molecule/top_news_molecule.dart';
+import 'package:compass_first_app/models/source/source.dart';
 import 'package:flutter/material.dart';
 
-import '../models/api_response/api_response.dart';
-import '../repositories/api_response_repository.dart';
+import '../models/article/article_entity.dart';
 
 class FavoriteNewsPage extends StatefulWidget {
   const FavoriteNewsPage({super.key});
@@ -12,46 +12,44 @@ class FavoriteNewsPage extends StatefulWidget {
 }
 
 class _FavoriteNewsPageState extends State<FavoriteNewsPage> {
-  late Future<ApiResponse> futureApiResponse;
-  final apiResponseRepository = ApiResponseRepository();
-
-  @override
-  void initState() {
-    super.initState();
-    futureApiResponse = apiResponseRepository.fetchArticles();
-  }
+  List<ArticleEntity> articles = [
+    ArticleEntity(
+        title: 'a',
+        description: 'b',
+        imagePath: 'imagePath',
+        source: Source(name: '', url: 'url'))
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(''),
+        title: const Text('Favorite News'),
       ),
-      body: FutureBuilder(
-        future: futureApiResponse,
-        builder: (BuildContext context, AsyncSnapshot<ApiResponse> snapshot) {
-          if (snapshot.hasData) {
-            return ListView.separated(
-              itemBuilder: (context, index) {
-                final article = snapshot.data!.articles[index];
-                return TopNewsMolecule(
-                  title: article.title,
-                  description: article.description,
-                  imagePath: article.imagePath,
-                  onTap: () {},
-                );
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(
-                  height: 8,
-                );
-              },
-              itemCount: snapshot.data?.articles.length ?? 0,
+      body: ListView.separated(
+          itemBuilder: (context, index) {
+            if (articles.isEmpty) {
+              return const Center(
+                child: Text(
+                  'Lista de favoritos vazia',
+                  style: TextStyle(fontSize: 20),
+                ),
+              );
+            }
+            final article = articles[index];
+            return TopNewsMolecule(
+              title: article.title,
+              description: article.description,
+              imagePath: article.imagePath,
+              onTap: () {},
             );
-          }
-          return const CircularProgressIndicator();
-        },
-      ),
+          },
+          separatorBuilder: (context, index) {
+            return const SizedBox(
+              height: 8,
+            );
+          },
+          itemCount: articles.isEmpty ? 1 : articles.length),
     );
   }
 }

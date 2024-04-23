@@ -2,7 +2,7 @@ import 'package:compass_first_app/components/atoms/news_details_description_atom
 import 'package:compass_first_app/components/atoms/news_details_title_atom/news_details_title_atom.dart';
 import 'package:compass_first_app/components/atoms/news_image_atom.dart';
 import 'package:compass_first_app/components/molecules/news_details_profile_molecule/news_details_profile_molecule.dart';
-import 'package:compass_first_app/models/article/article.dart';
+import 'package:compass_first_app/models/article/article_entity.dart';
 import 'package:flutter/material.dart';
 import '../components/molecules/news_details_appbar_molecule/news_details_appbar_molecule.dart';
 
@@ -11,7 +11,7 @@ class NewsDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final article = ModalRoute.of(context)!.settings.arguments as Article;
+    final article = ModalRoute.of(context)!.settings.arguments as ArticleEntity;
     return Scaffold(
       appBar: NewsDetailsAppbarMolecule(),
       body: SingleChildScrollView(

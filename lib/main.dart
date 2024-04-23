@@ -1,4 +1,4 @@
-import 'package:compass_first_app/bloc/favorite_news_bloc.dart';
+import 'package:compass_first_app/bloc/favorite_bloc/favorite_news_bloc.dart';
 import 'package:compass_first_app/pages/favorite_news_page.dart';
 import 'package:compass_first_app/pages/home_page.dart';
 import 'package:compass_first_app/pages/news_details_page.dart';

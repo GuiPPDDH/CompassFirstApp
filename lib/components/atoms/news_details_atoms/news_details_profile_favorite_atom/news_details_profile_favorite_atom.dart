@@ -1,4 +1,4 @@
-import 'package:compass_first_app/bloc/favorite_news_bloc.dart';
+import 'package:compass_first_app/bloc/favorite_bloc/favorite_news_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,7 +20,7 @@ class NewsDetailsProfileFavoriteAtom extends StatelessWidget {
           },
           icon: Icon(
             Icons.favorite,
-            color: state.isFavorite ? color : Colors.red,
+            color: state.isFavorite ? Colors.red : color,
           ),
         );
       },
