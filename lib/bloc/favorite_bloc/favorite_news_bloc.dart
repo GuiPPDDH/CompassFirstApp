@@ -8,8 +8,8 @@ class FavoriteNewsBloc extends Bloc<FavoriteNewsEvent, FavoriteNewsState> {
     on<FavoriteToggle>(_toogleFavoriteStatus);
   }
 
-  void _toogleFavoriteStatus(FavoriteToggle event, Emitter emitter) {
-    bool isFavorite = state.isFavorite;
-    emitter(FavoriteNewsStateData(!isFavorite));
+  void _toogleFavoriteStatus(
+      FavoriteToggle event, Emitter<FavoriteNewsState> emitter) {
+    emitter(FavoriteNewsStateData(!state.isFavorite));
   }
 }
