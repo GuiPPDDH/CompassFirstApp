@@ -1,27 +1,13 @@
+import 'package:compass_first_app/bloc/news_bloc/news_bloc.dart';
 import 'package:compass_first_app/components/molecules/my_appbar_molecule/my_appbar_molecule.dart';
 import 'package:compass_first_app/components/molecules/top_news_molecule/top_news_title_molecule.dart';
 import 'package:compass_first_app/components/molecules/trending_news_molecule/trending_news_molecule.dart';
-import 'package:compass_first_app/models/api_response/api_response.dart';
-import 'package:compass_first_app/repositories/api_response_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../components/molecules/top_news_molecule/top_news_molecule.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  late Future<ApiResponse> futureApiResponse;
-  final apiResponseRepository = ApiResponseRepository();
-
-  @override
-  void initState() {
-    super.initState();
-    futureApiResponse = apiResponseRepository.fetchArticles();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,26 +22,22 @@ class _HomePageState extends State<HomePage> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      FutureBuilder(
-                        future: futureApiResponse,
-                        builder: (BuildContext context,
-                            AsyncSnapshot<ApiResponse> snapshot) {
-                          if (snapshot.hasData) {
-                            final article = snapshot.data!.articles[0];
+                      BlocBuilder<NewsBloc, NewsState>(
+                        builder: (context, state) {
+                          if (state is NewsStateLoading) {
+                            return const CircularProgressIndicator();
+                          } else if (state is NewsStateSuccess) {
+                            final article = state.apiResponse.articles[0];
                             return TrendingNewsMolecule(
                               title: article.title,
                               imagePath: article.imagePath,
-                              onTap: () {
-                                Navigator.of(context).pushNamed(
-                                  '/news_details',
-                                  arguments: article,
-                                );
-                              },
+                              onTap: () => Navigator.of(context).pushNamed(
+                                '/news_details',
+                                arguments: article,
+                              ),
                             );
                           }
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
+                          return const SizedBox.shrink();
                         },
                       ),
                       const SizedBox(
@@ -65,10 +47,11 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         height: 10,
                       ),
-                      FutureBuilder(
-                        future: futureApiResponse,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
+                      BlocBuilder<NewsBloc, NewsState>(
+                        builder: (context, state) {
+                          if (state is NewsStateLoading) {
+                            return const CircularProgressIndicator();
+                          } else if (state is NewsStateSuccess) {
                             return ListView.separated(
                               separatorBuilder: (context, index) {
                                 return const SizedBox(
@@ -77,9 +60,10 @@ class _HomePageState extends State<HomePage> {
                               },
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
-                              itemCount: snapshot.data?.articles.length ?? 0,
+                              itemCount: state.apiResponse.articles.length,
                               itemBuilder: (context, index) {
-                                final articles = snapshot.data!.articles[index];
+                                final articles =
+                                    state.apiResponse.articles[index];
                                 return TopNewsMolecule(
                                   title: articles.title,
                                   description: articles.description,
@@ -94,11 +78,19 @@ class _HomePageState extends State<HomePage> {
                               },
                             );
                           }
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
+                          return const SizedBox.shrink();
                         },
                       ),
+                      // FutureBuilder(
+                      //   future: futureApiResponse,
+                      //   builder: (context, snapshot) {
+                      //     if (snapshot.hasData) {
+                      //
+                      //     return const Center(
+                      //       child: CircularProgressIndicator(),
+                      //     );
+                      //   },
+                      // ),
                     ],
                   ),
                 ),
