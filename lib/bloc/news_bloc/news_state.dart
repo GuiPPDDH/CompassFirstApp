@@ -13,9 +13,9 @@ class NewsStateError extends NewsState {
 }
 
 class NewsStateSuccess extends NewsState {
-  final List<ArticleEntity> articles;
+  final ApiResponse apiResponse;
 
   NewsStateSuccess({
-    required this.articles,
+    required this.apiResponse,
   });
 }
