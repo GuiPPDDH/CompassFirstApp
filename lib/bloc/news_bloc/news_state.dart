@@ -5,10 +5,10 @@ abstract class NewsState {}
 class NewsStateLoading extends NewsState {}
 
 class NewsStateError extends NewsState {
-  final String message;
+  final String errorMessage;
 
   NewsStateError({
-    required this.message,
+    required this.errorMessage,
   });
 }
 
