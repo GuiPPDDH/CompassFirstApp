@@ -2,16 +2,18 @@ import 'package:compass_first_app/components/atoms/news_details_atoms/news_detai
 import 'package:compass_first_app/components/atoms/news_details_atoms/news_details_profile_description_atom/news_details_profile_description_atom.dart';
 import 'package:compass_first_app/components/atoms/news_details_atoms/news_details_profile_favorite_atom/news_details_profile_favorite_atom.dart';
 import 'package:compass_first_app/components/atoms/news_details_atoms/news_details_profile_name_atom/news_details_profile_name_atom.dart';
+import 'package:compass_first_app/models/article/article_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../bloc/favorite_bloc/favorite_news_bloc.dart';
 
 class NewsDetailsProfileMolecule extends StatelessWidget {
-  final String name;
-  final String url;
+  final ArticleEntity articleEntity;
 
   const NewsDetailsProfileMolecule({
     super.key,
-    required this.name,
-    required this.url,
+    required this.articleEntity,
   });
 
   @override
@@ -24,7 +26,7 @@ class NewsDetailsProfileMolecule extends StatelessWidget {
             children: [
               NewsDetailsProfileAvatarAtom(
                 color: Colors.red[600],
-                name: name[0],
+                name: articleEntity.source.name[0],
               ),
               const SizedBox(
                 width: 20,
@@ -35,13 +37,13 @@ class NewsDetailsProfileMolecule extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     NewsDetailsProfileNameAtom(
-                      name: name,
+                      name: articleEntity.source.name,
                     ),
                     const SizedBox(
                       height: 4,
                     ),
                     NewsDetailsProfileUrlAtom(
-                      url: url,
+                      url: articleEntity.source.url,
                     ),
                   ],
                 ),
@@ -49,10 +51,24 @@ class NewsDetailsProfileMolecule extends StatelessWidget {
             ],
           ),
         ),
-        const Row(
+        Row(
           children: [
-            NewsDetailsProfileFavoriteAtom(
-              color: Colors.grey,
+            BlocBuilder<FavoriteNewsBloc, FavoriteNewsState>(
+              builder: (context, state) {
+                if (state is FavoriteNewsStateSuccess) {
+                  return NewsDetailsProfileFavoriteAtom(
+                    onPressed: () {
+                      context.read<FavoriteNewsBloc>().add(
+                            AddNews(
+                              articleEntity: articleEntity,
+                            ),
+                          );
+                    },
+                    isFavorited: state.favoriteArticles.contains(articleEntity),
+                  );
+                }
+                return const SizedBox.shrink();
+              },
             ),
           ],
         ),

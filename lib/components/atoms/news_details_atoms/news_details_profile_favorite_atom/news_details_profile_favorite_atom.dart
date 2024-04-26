@@ -1,29 +1,23 @@
-import 'package:compass_first_app/bloc/favorite_bloc/favorite_news_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NewsDetailsProfileFavoriteAtom extends StatelessWidget {
-  final Color? color;
+  final Function()? onPressed;
+  final bool isFavorited;
 
   const NewsDetailsProfileFavoriteAtom({
     super.key,
-    required this.color,
+    this.onPressed,
+    required this.isFavorited,
   });
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FavoriteNewsBloc, FavoriteNewsState>(
-      builder: (context, state) {
-        return IconButton(
-          onPressed: () {
-            context.read<FavoriteNewsBloc>().add(FavoriteToggle());
-          },
-          icon: Icon(
-            Icons.favorite,
-            color: state.isFavorite ? Colors.red : color,
-          ),
-        );
-      },
+    return IconButton(
+      onPressed: onPressed,
+      icon: Icon(
+        isFavorited ? Icons.favorite : Icons.favorite_border,
+      ),
+      color: isFavorited ? Colors.red : Colors.black,
     );
   }
 }
