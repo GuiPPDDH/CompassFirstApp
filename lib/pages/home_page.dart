@@ -81,16 +81,6 @@ class HomePage extends StatelessWidget {
                           return const SizedBox.shrink();
                         },
                       ),
-                      // FutureBuilder(
-                      //   future: futureApiResponse,
-                      //   builder: (context, snapshot) {
-                      //     if (snapshot.hasData) {
-                      //
-                      //     return const Center(
-                      //       child: CircularProgressIndicator(),
-                      //     );
-                      //   },
-                      // ),
                     ],
                   ),
                 ),
