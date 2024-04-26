@@ -50,7 +50,9 @@ class _FavoriteNewsPageState extends State<FavoriteNewsPage> {
                   height: 8,
                 );
               },
-              itemCount: state.favoriteArticles.length,
+              itemCount: state.favoriteArticles.isEmpty
+                  ? 1
+                  : state.favoriteArticles.length,
             );
           }
 
