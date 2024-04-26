@@ -11,8 +11,14 @@ class FavoriteNewsBloc extends Bloc<FavoriteNewsEvent, FavoriteNewsState> {
   final List<ArticleEntity> _favoriteArticles = [];
 
   FavoriteNewsBloc() : super(FavoriteNewsStateLoading()) {
+    on<FetchFavoriteNews>(_fetchFavoriteNews);
     on<AddNews>(_addNews);
     on<RemoveNews>(_removeNews);
+  }
+
+  FutureOr<void> _fetchFavoriteNews(
+      FetchFavoriteNews event, Emitter<FavoriteNewsState> emitter) {
+    emitter(FavoriteNewsStateSuccess(favoriteArticles: _favoriteArticles));
   }
 
   FutureOr<void> _addNews(AddNews event, Emitter<FavoriteNewsState> emitter) {

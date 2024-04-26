@@ -4,14 +4,6 @@ abstract class FavoriteNewsState {}
 
 class FavoriteNewsStateLoading extends FavoriteNewsState {}
 
-class FavoriteNewsStateToggle extends FavoriteNewsState {
-  final bool isFavorite;
-
-  FavoriteNewsStateToggle({
-    this.isFavorite = false,
-  });
-}
-
 class FavoriteNewsStateError extends FavoriteNewsState {
   final String errorMessage;
 

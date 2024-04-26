@@ -2,6 +2,8 @@ part of 'favorite_news_bloc.dart';
 
 abstract class FavoriteNewsEvent {}
 
+class FetchFavoriteNews extends FavoriteNewsEvent {}
+
 class AddNews extends FavoriteNewsEvent {
   final ArticleEntity articleEntity;
 
