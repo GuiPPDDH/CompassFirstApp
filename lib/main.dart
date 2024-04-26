@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
               child: const NewsDetailsPage(),
             ),
         '/favorite_news': (context) => BlocProvider(
-              create: (context) => FavoriteNewsBloc(),
+              create: (context) => FavoriteNewsBloc()..add(FetchFavoriteNews()),
               child: const FavoriteNewsPage(),
             ),
       },
