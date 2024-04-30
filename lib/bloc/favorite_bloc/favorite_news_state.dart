@@ -1,17 +1,20 @@
 part of 'favorite_news_bloc.dart';
 
-abstract class FavoriteNewsState {
-  final bool isFavorite;
+abstract class FavoriteNewsState {}
 
-  FavoriteNewsState({
-    this.isFavorite = false,
+class FavoriteNewsStateLoading extends FavoriteNewsState {
+  FavoriteNewsStateLoading();
+}
+
+class FavoriteNewsStateError extends FavoriteNewsState {
+  final String errorMessage;
+
+  FavoriteNewsStateError({
+    required this.errorMessage,
   });
 }
 
-class FavoriteNewsStateInitial extends FavoriteNewsState {
-  FavoriteNewsStateInitial() : super(isFavorite: false);
-}
-
-class FavoriteNewsStateData extends FavoriteNewsState {
-  FavoriteNewsStateData(bool isFavorite) : super(isFavorite: isFavorite);
+class FavoriteNewsStateSuccess extends FavoriteNewsState {
+  final List<ArticleEntity> favoriteArticles;
+  FavoriteNewsStateSuccess({required this.favoriteArticles});
 }

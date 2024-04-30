@@ -5,17 +5,17 @@ abstract class NewsState {}
 class NewsStateLoading extends NewsState {}
 
 class NewsStateError extends NewsState {
-  final String message;
+  final String errorMessage;
 
   NewsStateError({
-    required this.message,
+    required this.errorMessage,
   });
 }
 
 class NewsStateSuccess extends NewsState {
-  final List<ArticleEntity> articles;
+  final ApiResponse apiResponse;
 
   NewsStateSuccess({
-    required this.articles,
+    required this.apiResponse,
   });
 }
