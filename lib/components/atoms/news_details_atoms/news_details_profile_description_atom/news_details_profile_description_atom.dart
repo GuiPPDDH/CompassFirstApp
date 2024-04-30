@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class NewsDetailsProfileDescriptionAtom extends StatelessWidget {
-  final String description;
+class NewsDetailsProfileUrlAtom extends StatelessWidget {
+  final String url;
 
-  const NewsDetailsProfileDescriptionAtom({
+  const NewsDetailsProfileUrlAtom({
     super.key,
-    required this.description,
+    required this.url,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      description,
+      url,
       style: const TextStyle(
         fontSize: 13,
         color: Colors.grey,

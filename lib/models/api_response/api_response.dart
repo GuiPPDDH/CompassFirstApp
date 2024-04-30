@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:compass_first_app/models/article/article.dart';
+import 'package:compass_first_app/models/article/article_entity.dart';
 
 class ApiResponse {
-  final List<Article> articles;
+  final List<ArticleEntity> articles;
 
   ApiResponse({
     required this.articles,
@@ -11,9 +11,10 @@ class ApiResponse {
   factory ApiResponse.fromMap(Map<String, dynamic> map) {
     return ApiResponse(
       articles: map['articles']
-              .map<Article>((articleMap) => Article.fromMap(articleMap))
+              .map<ArticleEntity>(
+                  (articleMap) => ArticleEntity.fromMap(articleMap))
               .toList() ??
-          <Article>[],
+          <ArticleEntity>[],
     );
   }
   factory ApiResponse.fromJson(String json) =>

@@ -6,7 +6,7 @@ class MyAppbarLogoAtom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: 95,
+      right: 0,
       child: Container(
         width: 55,
         height: 65,

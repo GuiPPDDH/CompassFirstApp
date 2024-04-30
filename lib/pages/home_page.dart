@@ -1,4 +1,3 @@
-import 'package:compass_first_app/components/molecules/bottom_navigation_bar_molecule/bottom_navigation_bar_molecule.dart';
 import 'package:compass_first_app/components/molecules/my_appbar_molecule/my_appbar_molecule.dart';
 import 'package:compass_first_app/components/molecules/top_news_molecule/top_news_title_molecule.dart';
 import 'package:compass_first_app/components/molecules/trending_news_molecule/trending_news_molecule.dart';
@@ -27,78 +26,88 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        padding: const EdgeInsets.all(30),
-        children: [
-          const MyAppBarMolecule(),
-          const SizedBox(
-            height: 40,
+      body: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+          child: Column(
+            children: [
+              const MyAppBarMolecule(),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      FutureBuilder(
+                        future: futureApiResponse,
+                        builder: (BuildContext context,
+                            AsyncSnapshot<ApiResponse> snapshot) {
+                          if (snapshot.hasData) {
+                            final article = snapshot.data!.articles[0];
+                            return TrendingNewsMolecule(
+                              title: article.title,
+                              imagePath: article.imagePath,
+                              onTap: () {
+                                Navigator.of(context).pushNamed(
+                                  '/news_details',
+                                  arguments: article,
+                                );
+                              },
+                            );
+                          }
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        },
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      const TopNewsTitleMolecule(),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      FutureBuilder(
+                        future: futureApiResponse,
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return ListView.separated(
+                              separatorBuilder: (context, index) {
+                                return const SizedBox(
+                                  height: 8,
+                                );
+                              },
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: snapshot.data?.articles.length ?? 0,
+                              itemBuilder: (context, index) {
+                                final articles = snapshot.data!.articles[index];
+                                return TopNewsMolecule(
+                                  title: articles.title,
+                                  description: articles.description,
+                                  imagePath: articles.imagePath,
+                                  onTap: () {
+                                    Navigator.of(context).pushNamed(
+                                      '/news_details',
+                                      arguments: articles,
+                                    );
+                                  },
+                                );
+                              },
+                            );
+                          }
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
-          FutureBuilder(
-            future: futureApiResponse,
-            builder:
-                (BuildContext context, AsyncSnapshot<ApiResponse> snapshot) {
-              if (snapshot.hasData) {
-                final article = snapshot.data!.articles[0];
-                return TrendingNewsMolecule(
-                  title: article.title,
-                  imagePath: article.imagePath,
-                  onTap: () {
-                    Navigator.of(context).pushNamed(
-                      '/news_details',
-                      arguments: article,
-                    );
-                  },
-                );
-              }
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          const TopNewsTitleMolecule(),
-          const SizedBox(
-            height: 10,
-          ),
-          FutureBuilder(
-            future: futureApiResponse,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return ListView.separated(
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(
-                      height: 8,
-                    );
-                  },
-                  shrinkWrap: true,
-                  itemCount: snapshot.data?.articles.length ?? 0,
-                  itemBuilder: (context, index) {
-                    final articles = snapshot.data!.articles[index];
-                    return TopNewsMolecule(
-                      title: articles.title,
-                      description: articles.description,
-                      imagePath: articles.imagePath,
-                      onTap: () {
-                        Navigator.of(context).pushNamed(
-                          '/news_details',
-                          arguments: articles,
-                        );
-                      },
-                    );
-                  },
-                );
-              }
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            },
-          ),
-        ],
+        ),
       ),
-      bottomNavigationBar: const BottomNavigationBarMolecule(),
+      //bottomNavigationBar: const BottomNavigationBarMolecule(),
     );
   }
 }
