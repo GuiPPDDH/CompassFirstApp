@@ -26,7 +26,6 @@ class _FavoriteNewsPageState extends State<FavoriteNewsPage> {
           } else if (state is FavoriteNewsStateSuccess) {
             return ListView.separated(
               itemBuilder: (context, index) {
-                final favoriteArticle = state.favoriteArticles[index];
                 if (state.favoriteArticles.isEmpty) {
                   return const Center(
                     child: Text(
@@ -36,14 +35,19 @@ class _FavoriteNewsPageState extends State<FavoriteNewsPage> {
                       ),
                     ),
                   );
-                } else {
-                  return TopNewsMolecule(
-                    title: favoriteArticle.title,
-                    description: favoriteArticle.description,
-                    imagePath: favoriteArticle.imagePath,
-                    onTap: () {},
-                  );
                 }
+                final favoriteArticle = state.favoriteArticles[index];
+                return TopNewsMolecule(
+                  title: favoriteArticle.title,
+                  description: favoriteArticle.description,
+                  imagePath: favoriteArticle.imagePath,
+                  onTap: () {
+                    Navigator.of(context).pushNamed(
+                      '/news_details',
+                      arguments: favoriteArticle,
+                    );
+                  },
+                );
               },
               separatorBuilder: (context, index) {
                 return const SizedBox(

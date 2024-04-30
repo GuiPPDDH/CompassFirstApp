@@ -63,16 +63,16 @@ class HomePage extends StatelessWidget {
                               physics: const NeverScrollableScrollPhysics(),
                               itemCount: state.apiResponse.articles.length,
                               itemBuilder: (context, index) {
-                                final articles =
+                                final article =
                                     state.apiResponse.articles[index];
                                 return TopNewsMolecule(
-                                  title: articles.title,
-                                  description: articles.description,
-                                  imagePath: articles.imagePath,
+                                  title: article.title,
+                                  description: article.description,
+                                  imagePath: article.imagePath,
                                   onTap: () {
                                     Navigator.of(context).pushNamed(
                                       '/news_details',
-                                      arguments: articles,
+                                      arguments: article,
                                     );
                                   },
                                 );
