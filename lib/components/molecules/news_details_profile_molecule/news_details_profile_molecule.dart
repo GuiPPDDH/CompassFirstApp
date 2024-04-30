@@ -55,19 +55,29 @@ class NewsDetailsProfileMolecule extends StatelessWidget {
           children: [
             BlocBuilder<FavoriteNewsBloc, FavoriteNewsState>(
               builder: (context, state) {
-                if (state is FavoriteNewsStateSuccess) {
-                  return NewsDetailsProfileFavoriteAtom(
-                    onPressed: () {
-                      context.read<FavoriteNewsBloc>().add(
-                            AddNews(
-                              articleEntity: articleEntity,
-                            ),
-                          );
-                    },
-                    isFavorited: state.favoriteArticles.contains(articleEntity),
-                  );
-                }
-                return const SizedBox.shrink();
+                return NewsDetailsProfileFavoriteAtom(
+                  onPressed: () {
+                    if (state is FavoriteNewsStateSuccess) {
+                      if (state.favoriteArticles.contains(articleEntity)) {
+                        context.read<FavoriteNewsBloc>().add(
+                              RemoveNews(
+                                articleEntity: articleEntity,
+                              ),
+                            );
+                      } else {
+                        context.read<FavoriteNewsBloc>().add(
+                              AddNews(
+                                articleEntity: articleEntity,
+                              ),
+                            );
+                      }
+                    }
+                  },
+                  isFavorited: state is FavoriteNewsStateSuccess &&
+                          state.favoriteArticles.contains(articleEntity)
+                      ? true
+                      : false,
+                );
               },
             ),
           ],
