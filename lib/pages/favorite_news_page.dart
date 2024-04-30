@@ -16,6 +16,7 @@ class _FavoriteNewsPageState extends State<FavoriteNewsPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Favorite News'),
+        centerTitle: true,
       ),
       body: BlocBuilder<FavoriteNewsBloc, FavoriteNewsState>(
         builder: (context, state) {
@@ -24,39 +25,42 @@ class _FavoriteNewsPageState extends State<FavoriteNewsPage> {
               child: CircularProgressIndicator(),
             );
           } else if (state is FavoriteNewsStateSuccess) {
-            return ListView.separated(
-              itemBuilder: (context, index) {
-                if (state.favoriteArticles.isEmpty) {
-                  return const Center(
-                    child: Text(
-                      'Lista de favoritos vazia',
-                      style: TextStyle(
-                        fontSize: 20,
+            return Container(
+              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+              child: ListView.separated(
+                itemBuilder: (context, index) {
+                  if (state.favoriteArticles.isEmpty) {
+                    return const Center(
+                      child: Text(
+                        'Lista de favoritos vazia',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
                       ),
-                    ),
-                  );
-                }
-                final favoriteArticle = state.favoriteArticles[index];
-                return TopNewsMolecule(
-                  title: favoriteArticle.title,
-                  description: favoriteArticle.description,
-                  imagePath: favoriteArticle.imagePath,
-                  onTap: () {
-                    Navigator.of(context).pushNamed(
-                      '/news_details',
-                      arguments: favoriteArticle,
                     );
-                  },
-                );
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(
-                  height: 8,
-                );
-              },
-              itemCount: state.favoriteArticles.isEmpty
-                  ? 1
-                  : state.favoriteArticles.length,
+                  }
+                  final favoriteArticle = state.favoriteArticles[index];
+                  return TopNewsMolecule(
+                    title: favoriteArticle.title,
+                    description: favoriteArticle.description,
+                    imagePath: favoriteArticle.imagePath,
+                    onTap: () {
+                      Navigator.of(context).pushNamed(
+                        '/news_details',
+                        arguments: favoriteArticle,
+                      );
+                    },
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return const SizedBox(
+                    height: 8,
+                  );
+                },
+                itemCount: state.favoriteArticles.isEmpty
+                    ? 1
+                    : state.favoriteArticles.length,
+              ),
             );
           }
 
