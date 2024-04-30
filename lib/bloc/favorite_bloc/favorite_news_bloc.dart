@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,19 +19,49 @@ class FavoriteNewsBloc extends Bloc<FavoriteNewsEvent, FavoriteNewsState> {
 
   FutureOr<void> _fetchFavoriteNews(
       FetchFavoriteNews event, Emitter<FavoriteNewsState> emitter) {
-    emitter(FavoriteNewsStateSuccess(favoriteArticles: _favoriteArticles));
+    try {
+      emitter(FavoriteNewsStateSuccess(favoriteArticles: _favoriteArticles));
+    } catch (e, s) {
+      log(
+        'Falha ao carregar a lista de notícias favoritas.',
+        error: e,
+        stackTrace: s,
+      );
+      emitter(FavoriteNewsStateError(
+          errorMessage: 'Falha ao carregar a lista de notícias favoritas.'));
+    }
   }
 
   FutureOr<void> _addNews(AddNews event, Emitter<FavoriteNewsState> emitter) {
-    emitter(FavoriteNewsStateLoading());
-    _favoriteArticles.add(event.articleEntity);
-    emitter(FavoriteNewsStateSuccess(favoriteArticles: _favoriteArticles));
+    try {
+      emitter(FavoriteNewsStateLoading());
+      _favoriteArticles.add(event.articleEntity);
+      emitter(FavoriteNewsStateSuccess(favoriteArticles: _favoriteArticles));
+    } catch (e, s) {
+      log(
+        'Falha ao adicionar a notícia na lista de favoritos.',
+        error: e,
+        stackTrace: s,
+      );
+      emitter(FavoriteNewsStateError(
+          errorMessage: 'Falha ao adicionar a notícia na lista de favoritos.'));
+    }
   }
 
   FutureOr<void> _removeNews(
       RemoveNews event, Emitter<FavoriteNewsState> emitter) {
-    emitter(FavoriteNewsStateLoading());
-    _favoriteArticles.remove(event.articleEntity);
-    emitter(FavoriteNewsStateSuccess(favoriteArticles: _favoriteArticles));
+    try {
+      emitter(FavoriteNewsStateLoading());
+      _favoriteArticles.remove(event.articleEntity);
+      emitter(FavoriteNewsStateSuccess(favoriteArticles: _favoriteArticles));
+    } catch (e, s) {
+      log(
+        'Falha ao remover a notícia da lista de favoritos.',
+        error: e,
+        stackTrace: s,
+      );
+      emitter(FavoriteNewsStateError(
+          errorMessage: 'Falha ao remover a notícia da lista de favoritos.'));
+    }
   }
 }
